@@ -1,2 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
+{% block content %}
+<form mothod="POST">
+  {% csrf_token %}
+  <table>
+    <tr>
+      <th colspan=3>Movie</th>
+    </tr>
+    {% for f in form %}
+    <tr>
+      {% if f.eerors %}
+        <td>{{ f.errors }}</td>
+      {% endif %}
+      <td>{{ f.label_tag }}</td>
+      <td>{{ f }}</td>
+    </tr>
+    
+    {% endfor %}
+  </table>
+  <input type="submit" value="SUBMIT">
+</form>
+{% endblock content %}
+
