@@ -4,5 +4,5 @@ from rating_app.models import Movie
 
 class MovieForm(forms.ModelForm):
     class Meta:
-        modele = Movie
+        model = Movie
         fields = ["title", "genre", "release_date", "rating"]
