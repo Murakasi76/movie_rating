@@ -6,7 +6,10 @@ from rating_app.forms import MovieForm
 
 def index(request: HttpRequest):
     if request.method == "POST":
-        pass
+        movie_form = MovieForm(request.POST)
+        if movie_form.is_valid():
+            movie_form.save()
+            return HttpResponse("Date was saved")
     elif request.method == "GET":
         form = MovieForm()
     
